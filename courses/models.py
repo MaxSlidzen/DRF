@@ -9,7 +9,8 @@ class Course(models.Model):
     image = models.ImageField(upload_to='courses/courses/', verbose_name='превью курса', **NULLABLE)
     description = models.TextField(verbose_name='описание')
 
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='автор', **NULLABLE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='автор', **NULLABLE,
+                               related_name='course')
 
     def __str__(self):
         return f'{self.title}'
@@ -24,9 +25,10 @@ class Lesson(models.Model):
     image = models.ImageField(upload_to='courses/lessons/', verbose_name='превью урока', **NULLABLE)
     description = models.TextField(verbose_name='описание')
     link = models.URLField(verbose_name='ссылка', **NULLABLE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='курс')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='курс', related_name='lesson')
 
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='автор', **NULLABLE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='автор', **NULLABLE,
+                               related_name='lesson')
 
     def __str__(self):
         return f'{self.title}'
@@ -44,12 +46,13 @@ class Payment(models.Model):
         (METHOD_TRANSFER, 'Перевод'),
     )
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='пользователь')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='пользователь',
+                             related_name='payment')
     payment_date = models.DateField(verbose_name='дата оплаты')
     course = models.ForeignKey(Course, on_delete=models.CASCADE, **NULLABLE, verbose_name='оплаченный курс',
-                               related_name='method')
+                               related_name='payment')
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, **NULLABLE, verbose_name='оплаченный урок',
-                               related_name='method')
+                               related_name='payment')
     payment = models.IntegerField(verbose_name='сумма')
     method = models.CharField(max_length=20, choices=METHODS, verbose_name='способ оплаты')
 
