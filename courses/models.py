@@ -1,6 +1,6 @@
 from django.db import models
 
-from users.models import NULLABLE
+from users.models import NULLABLE, User
 
 
 class Course(models.Model):
@@ -29,3 +29,28 @@ class Lesson(models.Model):
     class Meta:
         verbose_name = 'урок'
         verbose_name_plural = 'уроки'
+
+
+class Payment(models.Model):
+    METHOD_CASH = 'cash'
+    METHOD_TRANSFER = 'transfer'
+    METHODS = (
+        (METHOD_CASH, 'Наличные'),
+        (METHOD_TRANSFER, 'Перевод'),
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь')
+    payment_date = models.DateField(verbose_name='дата оплаты')
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, **NULLABLE, verbose_name='оплаченный курс',
+                               related_name='method')
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, **NULLABLE, verbose_name='оплаченный урок',
+                               related_name='method')
+    payment = models.IntegerField(verbose_name='сумма')
+    method = models.CharField(max_length=20, choices=METHODS, verbose_name='способ оплаты')
+
+    def __str__(self):
+        return f'{self.user} - {self.payment}'
+
+    class Meta:
+        verbose_name = 'платеж'
+        verbose_name_plural = 'платежи'

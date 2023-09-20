@@ -1,0 +1,102 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "12345",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-09-18T18:08:27.459Z",
+      "email": "test1@sky.pro",
+      "first_name": null,
+      "last_name": null,
+      "avatar": "",
+      "phone": null,
+      "city": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "12345",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-09-18T18:08:50.945Z",
+      "email": "test2@sky.pro",
+      "first_name": null,
+      "last_name": null,
+      "avatar": "",
+      "phone": null,
+      "city": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "12345",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-09-18T18:08:55.005Z",
+      "email": "test3@sky.pro",
+      "first_name": null,
+      "last_name": null,
+      "avatar": "",
+      "phone": null,
+      "city": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "12345",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-09-18T18:09:08.507Z",
+      "email": "test4@sky.pro",
+      "first_name": null,
+      "last_name": null,
+      "avatar": "",
+      "phone": null,
+      "city": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+      "password": "12345",
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-09-18T18:09:12.783Z",
+      "email": "test5@sky.pro",
+      "first_name": null,
+      "last_name": null,
+      "avatar": "",
+      "phone": null,
+      "city": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

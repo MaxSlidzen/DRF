@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 
 from courses.apps import CoursesConfig
 from courses.views import CourseAPIViewSet, LessonCreateAPIView, LessonListAPIView, LessonRetrieveAPIView, \
-    LessonUpdateAPIView, LessonDestroyAPIView
+    LessonUpdateAPIView, LessonDestroyAPIView, PaymentAPIViewSet
 
 app_name = CoursesConfig.name
 
@@ -15,7 +15,11 @@ urlpatterns = [
     path('lessons/<int:pk>/delete/', LessonDestroyAPIView.as_view(), name='lessons_delete'),
 ]
 
-router = DefaultRouter()
-router.register(r'courses', CourseAPIViewSet, basename='courses')
+router_course = DefaultRouter()
+router_course.register(r'courses', CourseAPIViewSet, basename='courses')
 
-urlpatterns += router.urls
+router_payment = DefaultRouter()
+router_payment.register(r'payments', PaymentAPIViewSet, basename='payments')
+
+urlpatterns += router_course.urls
+urlpatterns += router_payment.urls
