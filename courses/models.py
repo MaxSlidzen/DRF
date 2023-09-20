@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 from users.models import NULLABLE, User
@@ -7,6 +8,8 @@ class Course(models.Model):
     title = models.CharField(max_length=200, verbose_name='название')
     image = models.ImageField(upload_to='courses/courses/', verbose_name='превью курса', **NULLABLE)
     description = models.TextField(verbose_name='описание')
+
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='автор', **NULLABLE)
 
     def __str__(self):
         return f'{self.title}'
@@ -22,6 +25,8 @@ class Lesson(models.Model):
     description = models.TextField(verbose_name='описание')
     link = models.URLField(verbose_name='ссылка', **NULLABLE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name='курс')
+
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='автор', **NULLABLE)
 
     def __str__(self):
         return f'{self.title}'
@@ -39,7 +44,7 @@ class Payment(models.Model):
         (METHOD_TRANSFER, 'Перевод'),
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='пользователь')
     payment_date = models.DateField(verbose_name='дата оплаты')
     course = models.ForeignKey(Course, on_delete=models.CASCADE, **NULLABLE, verbose_name='оплаченный курс',
                                related_name='method')
