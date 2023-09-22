@@ -5,18 +5,40 @@ from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView,
 from rest_framework.permissions import IsAuthenticated
 
 from courses.models import Course, Lesson, Payment
+from courses.permissions import AuthorOrModerator, AuthorOrModeratorOrCustomer, OnlyAuthor, NotModerator
 from courses.serializers import CourseSerializer, LessonSerializer, PaymentSerializer
 
 
 class CourseAPIViewSet(ModelViewSet):
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
-    permission_classes = [IsAuthenticated]
+    permissions = {
+        'create': NotModerator,
+        'retrieve': AuthorOrModeratorOrCustomer,
+        'update': AuthorOrModerator,
+        'partial_update': AuthorOrModerator,
+        'destroy': OnlyAuthor
+    }
+
+    def get_permissions(self):
+        self.permission_classes = [IsAuthenticated, self.permissions.get(self.action)]
+        return super().get_permissions()
+
+    def perform_create(self, serializer):
+        self.permission_classes = [NotModerator]
+        new_course = serializer.save()
+        new_course.author = self.request.user
+        new_course.save()
 
 
 class LessonCreateAPIView(CreateAPIView):
     serializer_class = LessonSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [NotModerator]
+
+    def perform_create(self, serializer):
+        new_lesson = serializer.save()
+        new_lesson.author = self.request.user
+        new_lesson.save()
 
 
 class LessonListAPIView(ListAPIView):
@@ -28,18 +50,18 @@ class LessonListAPIView(ListAPIView):
 class LessonRetrieveAPIView(RetrieveAPIView):
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AuthorOrModeratorOrCustomer]
 
 
 class LessonUpdateAPIView(UpdateAPIView):
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AuthorOrModerator]
 
 
 class LessonDestroyAPIView(DestroyAPIView):
     queryset = Lesson.objects.all()
-    permission_classes = [IsAuthenticated]
+    permission_classes = [OnlyAuthor]
 
 
 class PaymentAPIViewSet(ModelViewSet):
