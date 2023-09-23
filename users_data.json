@@ -1,102 +1,124 @@
 [
-  {
+{
     "model": "users.user",
     "pk": 1,
     "fields": {
-      "password": "12345",
-      "last_login": null,
-      "is_superuser": false,
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-09-18T18:08:27.459Z",
-      "email": "test1@sky.pro",
-      "first_name": null,
-      "last_name": null,
-      "avatar": "",
-      "phone": null,
-      "city": null,
-      "groups": [],
-      "user_permissions": []
+        "password": "pbkdf2_sha256$600000$sksRijvIskbqDm36AJu3Va$avPnWFFaBH61SSDg9EWTvgYXt2OcunbRx/vgBZqVKKk=",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-09-18T18:08:27.459Z",
+        "email": "test1@sky.pro",
+        "first_name": null,
+        "last_name": null,
+        "avatar": "",
+        "phone": null,
+        "city": null,
+        "groups": [],
+        "user_permissions": []
     }
-  },
-  {
+},
+{
     "model": "users.user",
     "pk": 2,
     "fields": {
-      "password": "12345",
-      "last_login": null,
-      "is_superuser": false,
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-09-18T18:08:50.945Z",
-      "email": "test2@sky.pro",
-      "first_name": null,
-      "last_name": null,
-      "avatar": "",
-      "phone": null,
-      "city": null,
-      "groups": [],
-      "user_permissions": []
+        "password": "pbkdf2_sha256$600000$PgG6PHtkfhaOTM1rf2Drf4$z1ONvVP8ssOhjinWym9/Y8cxii178h5j384kMnWUaXE=",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-09-18T18:08:50.945Z",
+        "email": "test2@sky.pro",
+        "first_name": null,
+        "last_name": null,
+        "avatar": "",
+        "phone": null,
+        "city": null,
+        "groups": [],
+        "user_permissions": []
     }
-  },
-  {
+},
+{
     "model": "users.user",
     "pk": 3,
     "fields": {
-      "password": "12345",
-      "last_login": null,
-      "is_superuser": false,
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-09-18T18:08:55.005Z",
-      "email": "test3@sky.pro",
-      "first_name": null,
-      "last_name": null,
-      "avatar": "",
-      "phone": null,
-      "city": null,
-      "groups": [],
-      "user_permissions": []
+        "password": "pbkdf2_sha256$600000$EqNvcWpqc1msQ6sBvWQ9w7$Bt1ds8pwT0faivJrSaXGfdIZa0g83r8bC0ZVT7TJCrU=",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-09-18T18:08:55.005Z",
+        "email": "test3@sky.pro",
+        "first_name": null,
+        "last_name": null,
+        "avatar": "",
+        "phone": null,
+        "city": null,
+        "groups": [],
+        "user_permissions": []
     }
-  },
-  {
+},
+{
     "model": "users.user",
     "pk": 4,
     "fields": {
-      "password": "12345",
-      "last_login": null,
-      "is_superuser": false,
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-09-18T18:09:08.507Z",
-      "email": "test4@sky.pro",
-      "first_name": null,
-      "last_name": null,
-      "avatar": "",
-      "phone": null,
-      "city": null,
-      "groups": [],
-      "user_permissions": []
+        "password": "pbkdf2_sha256$600000$XPqMgERAbEX7tAh6Ttc4WB$MHriPi21AYuqGMpzy+DERZkzjb7xYSk5DQJXXwo9+3I=",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-09-18T18:09:08.507Z",
+        "email": "test4@sky.pro",
+        "first_name": null,
+        "last_name": null,
+        "avatar": "",
+        "phone": null,
+        "city": null,
+        "groups": [],
+        "user_permissions": []
     }
-  },
-  {
+},
+{
     "model": "users.user",
     "pk": 5,
     "fields": {
-      "password": "12345",
-      "last_login": null,
-      "is_superuser": false,
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2023-09-18T18:09:12.783Z",
-      "email": "test5@sky.pro",
-      "first_name": null,
-      "last_name": null,
-      "avatar": "",
-      "phone": null,
-      "city": null,
-      "groups": [],
-      "user_permissions": []
+        "password": "pbkdf2_sha256$600000$gOhCYault070vEpDCU6JBb$nqFshySbPGQhGERPBcjiPTry71hkqyNUqHXQxXmrnCU=",
+        "last_login": "2023-09-20T11:50:10.248Z",
+        "is_superuser": false,
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-09-18T18:09:12Z",
+        "email": "test5@sky.pro",
+        "first_name": null,
+        "last_name": null,
+        "avatar": "",
+        "phone": null,
+        "city": null,
+        "groups": [
+            1
+        ],
+        "user_permissions": []
     }
-  }
+},
+{
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$cFLpndCMitD2dfCnx6yq1w$4SG7tLSWsiq3fnUOJusBdjez2ipx8TLLCPNw8RhG6/8=",
+        "last_login": "2023-09-20T12:34:23.987Z",
+        "is_superuser": true,
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-09-20T11:33:18.545Z",
+        "email": "admin@sky.pro",
+        "first_name": "Admin",
+        "last_name": "Adminov",
+        "avatar": "",
+        "phone": null,
+        "city": null,
+        "groups": [],
+        "user_permissions": []
+    }
+}
 ]
