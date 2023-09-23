@@ -15,13 +15,14 @@ class CourseAPIViewSet(ModelViewSet):
     permissions = {
         'create': NotModerator,
         'retrieve': AuthorOrModeratorOrCustomer,
+        'list': IsAuthenticated,
         'update': AuthorOrModerator,
         'partial_update': AuthorOrModerator,
         'destroy': OnlyAuthor
     }
 
     def get_permissions(self):
-        self.permission_classes = [IsAuthenticated, self.permissions.get(self.action)]
+        self.permission_classes = [self.permissions.get(self.action)]
         return super().get_permissions()
 
     def perform_create(self, serializer):
